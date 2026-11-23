@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English by Danis">
+<title>English by Danis</title>
+<style>
+:root{--gold:#d4af37;--gold2:#f5d77a;--bg:#050505;--card:#121212;--card2:#1a1a1a;--line:#3a3010;--ok:#4caf50;--bad:#e5484d}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:#f2e9c9;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+body{padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);min-height:100vh}
+#app{max-width:640px;margin:0 auto;padding:14px 14px 40px}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.logo{font-weight:800;letter-spacing:.5px;font-size:20px;color:var(--gold)}
+.logo small{display:block;font-size:11px;font-weight:600;color:var(--gold2);opacity:.8;letter-spacing:2px}
+.chip{border:1px solid var(--gold);color:var(--gold);border-radius:20px;padding:6px 12px;font-size:13px;background:transparent}
+.greet{background:linear-gradient(135deg,#1c1503,#0d0d0d);border:1px solid var(--gold);border-radius:16px;padding:14px;margin:8px 0 14px;display:flex;gap:10px;align-items:center}
+.greet b{color:var(--gold2);font-size:16px;line-height:1.35;flex:1}
+.btn{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#000;border:0;border-radius:12px;padding:12px 16px;font-weight:700;font-size:16px}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn.sm{padding:8px 12px;font-size:14px}
+.btn:disabled{opacity:.4}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.stat b{display:block;font-size:20px;color:var(--gold)}
+.stat span{font-size:11px;opacity:.7}
+h2{color:var(--gold);margin:16px 0 8px;font-size:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:18px;padding:14px;min-height:118px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;text-align:left;color:inherit;font:inherit}
+.tile:active{transform:scale(.97);border-color:var(--gold)}
+.tile .ic{font-size:30px}
+.tile .t{font-weight:700;color:var(--gold2);font-size:16px}
+.tile .s{font-size:12px;opacity:.7}
+.bar{height:5px;background:#2a2410;border-radius:4px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.tile.big{grid-column:span 2;min-height:96px;flex-direction:row;align-items:center;gap:14px}
+.tile.big .ic{font-size:38px}
+.tile.big .x{flex:1}
+.back{background:none;border:0;color:var(--gold);font-size:16px;padding:6px 0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:10px 0}
+.big-w{font-size:30px;font-weight:800;color:var(--gold2);text-align:center;margin:10px 0}
+.sub{text-align:center;opacity:.8;font-size:18px}
+.row{display:flex;gap:10px;margin-top:12px}.row>*{flex:1}
+.opt{display:block;width:100%;text-align:left;background:var(--card2);color:#f2e9c9;border:1px solid var(--line);border-radius:12px;padding:14px;margin:8px 0;font-size:16px}
+.opt.ok{background:#12301a;border-color:var(--ok)}.opt.bad{background:#35181a;border-color:var(--bad)}
+input[type=text],textarea{width:100%;background:#0b0b0b;color:#fff;border:1px solid var(--gold);border-radius:12px;padding:14px;font-size:18px;margin-top:10px;font-family:inherit}
+.fb{margin-top:10px;font-weight:700;text-align:center;min-height:24px}
+.ok-t{color:var(--ok)}.bad-t{color:var(--bad)}
+.prog{font-size:13px;opacity:.7;text-align:center;margin-bottom:6px}
+.tag{display:inline-block;font-size:11px;border:1px solid var(--gold);color:var(--gold);border-radius:10px;padding:2px 8px;margin-right:6px}
+.list div{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #221c08}
+.list div:last-child{border:0}.list b{color:var(--gold2)}
+footer{text-align:center;color:var(--gold);opacity:.7;font-size:12px;margin-top:28px;letter-spacing:2px}
+.ex{font-style:italic;opacity:.75;text-align:center;margin-top:6px;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"><div style="padding:40px 20px;text-align:center;color:#d4af37"><b style="font-size:22px">ENGLISH BY DANIS</b><p>Lädt …<br>Bleibt dieser Text stehen, wird die Datei nur als Vorschau angezeigt (ohne JavaScript). Bitte im Browser (Safari/Chrome) öffnen.</p></div></div>
+<noscript><p style="color:#d4af37;padding:20px">JavaScript ist deaktiviert oder die Datei läuft nur in einer Vorschau. Bitte in Safari/Chrome öffnen.</p></noscript>
+<script>window.onerror=function(m,u,l){var d=document.createElement("div");d.style.cssText="position:fixed;left:0;right:0;top:0;z-index:999;background:#400;color:#fff;padding:10px;font-size:12px";d.textContent="Fehler: "+m+" (Zeile "+l+")";document.body.appendChild(d)}</script>
+<script>
+/* ===== Daten ===== */
+const L = s => s.trim().split("\n").map(r => r.split("|").map(x => x.trim()));
+const LEVELS = [
+ {id:"anf", name:"Anfänger", cefr:"A1–A2", ic:"🌱", mods:[
+  {id:"a1", name:"Begrüßung", ic:"👋", w:L(`
+Hello|Hallo
+Good morning|Guten Morgen
+Good evening|Guten Abend
+How are you?|Wie geht es dir?
+I am fine, thank you.|Mir geht es gut, danke.
+Nice to meet you.|Schön, dich kennenzulernen.
+What is your name?|Wie heißt du?
+My name is Danis.|Mein Name ist Danis.
+Where are you from?|Woher kommst du?
+See you tomorrow.|Bis morgen.`)},
+  {id:"a2", name:"Zahlen & Zeit", ic:"🔢", w:L(`
+one|eins
+two|zwei
+three|drei
+ten|zehn
+twenty|zwanzig
+one hundred|einhundert
+What time is it?|Wie spät ist es?
+It is half past three.|Es ist halb vier.
+today|heute
+tomorrow|morgen
+yesterday|gestern
+Monday|Montag`)},
+  {id:"a3", name:"Familie", ic:"👨‍👩‍👧", w:L(`
+mother|Mutter
+father|Vater
+sister|Schwester
+brother|Bruder
+son|Sohn
+daughter|Tochter
+grandmother|Großmutter
+husband|Ehemann
+wife|Ehefrau
+friend|Freund
+I have two children.|Ich habe zwei Kinder.
+This is my family.|Das ist meine Familie.`)},
+  {id:"a4", name:"Essen & Trinken", ic:"🍽️", w:L(`
+water|Wasser
+bread|Brot
+coffee|Kaffee
+I would like a tea.|Ich hätte gern einen Tee.
+The menu, please.|Die Speisekarte, bitte.
+The bill, please.|Die Rechnung, bitte.
+breakfast|Frühstück
+lunch|Mittagessen
+dinner|Abendessen
+I am hungry.|Ich habe Hunger.
+I am thirsty.|Ich habe Durst.
+It is delicious.|Es ist lecker.`)},
+  {id:"a5", name:"Unterwegs", ic:"🚕", w:L(`
+taxi|Taxi
+airport|Flughafen
+train station|Bahnhof
+Where is the bus stop?|Wo ist die Bushaltestelle?
+Turn left.|Biegen Sie links ab.
+Turn right.|Biegen Sie rechts ab.
+Go straight ahead.|Gehen Sie geradeaus.
+How much is the fare?|Wie viel kostet die Fahrt?
+Please stop here.|Bitte halten Sie hier.
+Keep the change.|Der Rest ist für Sie.`)}
+ ], dlg:[
+  ["Hello! What is your name?","My name is Danis. Nice to meet you."],
+  ["How are you today?","I am fine, thank you. And you?"],
+  ["Where are you from?","I am from Germany. I live in Stuttgart."],
+  ["What would you like to drink?","I would like a coffee, please."]
+ ]},
+ {id:"fort", name:"Fortgeschritten", cefr:"B1–B2", ic:"🚀", mods:[
+  {id:"b1", name:"Reisen", ic:"✈️", w:L(`
+I would like to book a room.|Ich möchte ein Zimmer buchen.
+Is breakfast included?|Ist das Frühstück inbegriffen?
+My flight has been delayed.|Mein Flug hat Verspätung.
+luggage|Gepäck
+boarding pass|Bordkarte
+customs|Zoll
+I have lost my passport.|Ich habe meinen Reisepass verloren.
+Could you recommend a restaurant?|Könnten Sie ein Restaurant empfehlen?
+a return ticket|eine Rückfahrkarte
+Which platform does the train leave from?|Von welchem Gleis fährt der Zug ab?`)},
+  {id:"b2", name:"Arbeit & Alltag", ic:"💼", w:L(`
+I work in the office.|Ich arbeite im Büro.
+colleague|Kollege
+deadline|Abgabefrist
+I am responsible for finances.|Ich bin für die Finanzen zuständig.
+to attend a meeting|an einer Besprechung teilnehmen
+I am looking forward to it.|Ich freue mich darauf.
+salary|Gehalt
+holiday entitlement|Urlaubsanspruch
+to hand in notice|kündigen
+experience|Erfahrung`)},
+  {id:"b3", name:"Gesundheit", ic:"🩺", w:L(`
+I have a headache.|Ich habe Kopfschmerzen.
+I need to see a doctor.|Ich muss zum Arzt.
+prescription|Rezept
+I feel dizzy.|Mir ist schwindelig.
+appointment|Termin
+It hurts here.|Es tut hier weh.
+health insurance|Krankenversicherung
+I am allergic to nuts.|Ich bin allergisch gegen Nüsse.
+pharmacy|Apotheke
+Get well soon!|Gute Besserung!`)},
+  {id:"b4", name:"Meinung & Argumente", ic:"💬", w:L(`
+In my opinion|Meiner Meinung nach
+I agree with you.|Ich stimme dir zu.
+I see your point, but|Ich verstehe deinen Punkt, aber
+on the one hand|einerseits
+on the other hand|andererseits
+however|jedoch
+therefore|deshalb
+as far as I know|soweit ich weiß
+it depends on|es kommt darauf an
+to be honest|ehrlich gesagt`)},
+  {id:"b5", name:"Grammatik-Sätze", ic:"🧩", w:L(`
+I have been living here for ten years.|Ich wohne hier seit zehn Jahren.
+If I had more time, I would learn more.|Hätte ich mehr Zeit, würde ich mehr lernen.
+The car was repaired yesterday.|Das Auto wurde gestern repariert.
+She said that she was tired.|Sie sagte, dass sie müde sei.
+I used to work at night.|Ich habe früher nachts gearbeitet.
+By next year I will have finished.|Bis nächstes Jahr werde ich fertig sein.
+Have you ever been to London?|Warst du schon mal in London?
+He is taller than me.|Er ist größer als ich.
+I have just arrived.|Ich bin gerade angekommen.
+Neither of them came.|Keiner von beiden kam.`)}
+ ], dlg:[
+  ["Tell me about your job.","I work for a taxi cooperative in Stuttgart. I take care of administration and finances."],
+  ["What did you do last weekend?","I met friends and we went for a walk. It was relaxing."],
+  ["What are your plans for the future?","I want to speak fluent English by 2028."],
+  ["Do you prefer the city or the countryside?","I prefer the city because everything is close by."]
+ ]},
+ {id:"profi", name:"Profi", cefr:"C1–C2", ic:"👑", mods:[
+  {id:"c1", name:"Redewendungen", ic:"🎭", w:L(`
+a piece of cake|ein Kinderspiel
+to break the ice|das Eis brechen
+once in a blue moon|alle Jubeljahre
+to hit the nail on the head|den Nagel auf den Kopf treffen
+to be under the weather|angeschlagen sein
+the ball is in your court|du bist am Zug
+to bite the bullet|in den sauren Apfel beißen
+it costs an arm and a leg|es kostet ein Vermögen
+to let the cat out of the bag|die Katze aus dem Sack lassen
+to call it a day|Feierabend machen`)},
+  {id:"c2", name:"Phrasal Verbs", ic:"🔗", w:L(`
+to carry out|durchführen
+to come up with|sich ausdenken
+to look into|untersuchen
+to put off|verschieben
+to turn down|ablehnen
+to figure out|herausfinden
+to get along with|sich verstehen mit
+to run out of|ausgehen (Vorrat)
+to bring about|herbeiführen
+to back up|unterstützen / sichern`)},
+  {id:"c3", name:"Gehobener Wortschatz", ic:"📚", w:L(`
+ubiquitous|allgegenwärtig
+meticulous|akribisch
+ambiguous|mehrdeutig
+reluctant|widerwillig
+inevitable|unvermeidlich
+to mitigate|abmildern
+to undermine|untergraben
+substantial|beträchtlich
+scrutiny|genaue Prüfung
+resilient|widerstandsfähig`)},
+  {id:"c4", name:"Gesellschaft & Politik", ic:"🏛️", w:L(`
+legislation|Gesetzgebung
+the cost of living|die Lebenshaltungskosten
+sustainability|Nachhaltigkeit
+unemployment rate|Arbeitslosenquote
+to implement a policy|eine Maßnahme umsetzen
+public transport|öffentlicher Nahverkehr
+regulation|Regulierung
+taxpayer|Steuerzahler
+inequality|Ungleichheit
+to hold someone accountable|jemanden zur Rechenschaft ziehen`)}
+ ], dlg:[
+  ["What is your view on the future of mobility in cities?","I believe a mix of public transport, taxis and shared services will be essential, provided regulation keeps pace."],
+  ["How do you deal with tight deadlines?","I prioritise tasks, delegate where possible and communicate early if something is at risk."],
+  ["What would you change about your industry?","I would simplify bureaucracy and invest more in digital solutions."],
+  ["Can you describe a challenge you overcame?","I had to restructure a process under pressure, and by working step by step we succeeded."]
+ ]},
+ {id:"biz", name:"Business", cefr:"B2–C1", ic:"🏢", mods:[
+  {id:"d1", name:"Meetings", ic:"🗓️", w:L(`
+Let's get started.|Lasst uns anfangen.
+Could you elaborate on that?|Könnten Sie das näher ausführen?
+Let's move on to the next item.|Gehen wir zum nächsten Punkt über.
+I'd like to add something.|Ich möchte etwas ergänzen.
+Let's take this offline.|Das klären wir separat.
+Before we wrap up, let's recap.|Bevor wir abschließen, fassen wir zusammen.
+agenda|Tagesordnung
+minutes|Protokoll
+action item|Aufgabe / To-do
+We are running out of time.|Uns läuft die Zeit davon.`)},
+  {id:"d2", name:"E-Mails", ic:"✉️", w:L(`
+Dear Mr Miller,|Sehr geehrter Herr Miller,
+I am writing to inform you that|Ich schreibe Ihnen, um Sie zu informieren, dass
+Please find attached the invoice.|Anbei finden Sie die Rechnung.
+Just touching base regarding|Ich wollte kurz nachfragen bezüglich
+I look forward to hearing from you.|Ich freue mich auf Ihre Antwort.
+Kind regards|Freundliche Grüße
+Thank you for your prompt reply.|Vielen Dank für Ihre schnelle Antwort.
+I apologise for the inconvenience.|Ich entschuldige mich für die Unannehmlichkeiten.
+Please let me know if you have any questions.|Bitte melden Sie sich bei Fragen.
+as discussed|wie besprochen`)},
+  {id:"d3", name:"Verhandlung", ic:"🤝", w:L(`
+We would like to propose|Wir möchten vorschlagen
+What is your best offer?|Was ist Ihr bestes Angebot?
+That is out of our budget.|Das übersteigt unser Budget.
+Let's meet halfway.|Treffen wir uns in der Mitte.
+terms and conditions|Geschäftsbedingungen
+to sign the contract|den Vertrag unterzeichnen
+a binding agreement|eine verbindliche Vereinbarung
+deadline for delivery|Lieferfrist
+We can offer a discount of five percent.|Wir können fünf Prozent Rabatt anbieten.
+It's a deal.|Abgemacht.`)},
+  {id:"d4", name:"Finanzen", ic:"📊", w:L(`
+revenue|Umsatz
+profit|Gewinn
+expenses|Ausgaben
+balance sheet|Bilanz
+cash flow|Liquidität / Cashflow
+budget forecast|Budgetprognose
+invoice|Rechnung
+VAT|Umsatzsteuer
+to settle an invoice|eine Rechnung begleichen
+annual general meeting|Generalversammlung`)},
+  {id:"d5", name:"Telefon & Kunden", ic:"📞", w:L(`
+Good morning, how can I help you?|Guten Morgen, wie kann ich helfen?
+Could you hold the line, please?|Könnten Sie bitte kurz warten?
+I'll put you through.|Ich verbinde Sie.
+Could you spell that, please?|Könnten Sie das bitte buchstabieren?
+I'll get back to you shortly.|Ich melde mich in Kürze.
+Thank you for calling.|Danke für Ihren Anruf.
+I'm afraid he is not available.|Er ist leider nicht erreichbar.
+Could you repeat that, please?|Könnten Sie das bitte wiederholen?
+complaint|Beschwerde
+customer satisfaction|Kundenzufriedenheit`)}
+ ], dlg:[
+  ["Good morning. How can I help you?","Good morning. I would like to speak to the manager, please."],
+  ["Could you introduce yourself briefly?","My name is Danis. I work in administration and finance at a taxi cooperative in Stuttgart."],
+  ["Can you send me the offer by Friday?","Certainly. I will send it to you by Friday at the latest."],
+  ["What is your main objective for this project?","Our main objective is to reduce costs while improving customer service."]
+ ]}
+];
+
+/* ===== Zustand ===== */
+const KEY="englishByDanis.v1";
+let S = load();
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.mods)return s}catch(e){}return {mods:{},xp:0,days:[],voice:"",slow:false}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function M(id){return S.mods[id]||(S.mods[id]={learned:[],quiz:0,write:0,speak:0,dlg:0})}
+function touchDay(){const d=new Date().toISOString().slice(0,10);if(!S.days.includes(d)){S.days.push(d);save()}}
+function streak(){let n=0;const d=new Date();for(;;){const k=d.toISOString().slice(0,10);if(S.days.includes(k)){n++;d.setDate(d.getDate()-1)}else if(n===0){d.setDate(d.getDate()-1);if(!S.days.includes(d.toISOString().slice(0,10)))break}else break}return n}
+function pct(mod,lv){const m=M(mod.id);return Math.round(((m.learned.length/mod.w.length)*100+m.quiz+m.write+m.speak)/4)}
+function lvPct(lv){return Math.round(lv.mods.reduce((a,m)=>a+pct(m),0)/lv.mods.length)}
+
+/* ===== Sprache ===== */
+const GREET="Hallo Jambo vergiss dein Ziel für 2028 nicht und motiviere dich";
+let voices=[];
+function loadVoices(){voices=speechSynthesis.getVoices()||[]}
+if("speechSynthesis" in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
+let _u=[];
+function toast(m){let t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.style.cssText="position:fixed;left:12px;right:12px;bottom:18px;z-index:120;background:#1a1403;border:1px solid #d4af37;color:#f5d77a;padding:12px;border-radius:12px;font-size:14px;text-align:center";document.body.appendChild(t)}t.textContent=m;t.style.display="block";clearTimeout(t._h);t._h=setTimeout(()=>t.style.display="none",5000)}
+function speak(text,lang="en-US"){
+  if(!("speechSynthesis" in window)){toast("Dieser Browser unterstützt keine Sprachausgabe. Bitte Chrome (Android) oder Safari (iPhone) verwenden.");return}
+  const ss=window.speechSynthesis;
+  if(!voices.length)loadVoices();
+  const base=lang.slice(0,2);
+  const v=voices.find(v=>v.lang.replace("_","-")===lang)||voices.find(v=>v.lang.replace("_","-").toLowerCase().startsWith(base));
+  const go=()=>{
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang=lang;if(v)u.voice=v;
+    u.rate=lang.startsWith("en")?(S.slow?0.65:0.9):1;u.volume=1;u.pitch=1;
+    u.onerror=e=>{if(e.error&&e.error!=="canceled"&&e.error!=="interrupted")toast("Sprachausgabe-Fehler: "+e.error+" – Medienlautstärke prüfen / Stumm-Schalter aus.")};
+    _u.push(u);if(_u.length>5)_u.shift();   /* Referenz halten (Chrome-Bug) */
+    try{ss.resume()}catch(e){}
+    ss.speak(u);
+  };
+  if(ss.speaking||ss.pending){try{ss.cancel()}catch(e){}setTimeout(go,80)}else go();   /* direkt im Tipp-Ereignis (iOS) */
+}
+let greeted=false;
+function splash(){
+  const d=document.createElement("div");
+  d.style.cssText="position:fixed;inset:0;z-index:99;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;gap:18px";
+  d.innerHTML='<div class="logo" style="font-size:34px">ENGLISH<small style="font-size:13px">BY DANIS</small></div><div style="color:#f5d77a;font-weight:700;font-size:20px;line-height:1.4;max-width:420px">'+GREET+'</div><button class="btn" style="font-size:18px;padding:14px 30px">▶ Start</button>';
+  document.body.appendChild(d);
+  const go=()=>{greeted=true;speak(GREET,"de-DE");d.remove()};
+  d.onclick=go;
+}
+window.addEventListener("load",splash);
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+function listen(cb,err){
+  if(!SR){err("Spracherkennung wird von diesem Browser nicht unterstützt (Chrome/Android oder Safari nutzen).");return}
+  const r=new SR();r.lang="en-US";r.interimResults=false;r.maxAlternatives=3;
+  r.onresult=e=>cb([...e.results[0]].map(a=>a.transcript));
+  r.onerror=e=>err("Mikrofon-Fehler: "+e.error);
+  r.onnomatch=()=>err("Nichts verstanden – nochmal versuchen.");
+  try{r.start()}catch(e){err("Mikrofon konnte nicht gestartet werden.")}
+}
+const norm=s=>s.toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9' äöüß]/g," ").replace(/\s+/g," ").trim();
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ===== Views ===== */
+const $=document.getElementById("app");
+function shell(inner){
+  $.innerHTML=`<header><div class="logo">ENGLISH<small>BY DANIS</small></div><button class="chip" onclick="settings()">⚙︎ Einstellungen</button></header>${inner}<footer>★ ENGLISH BY DANIS ★</footer>`;
+  window.scrollTo(0,0);
+}
+function home(){
+  touchDay();
+  const xp=S.xp,words=Object.values(S.mods).reduce((a,m)=>a+m.learned.length,0);
+  shell(`
+  <div class="greet"><b>${GREET}</b><button class="btn sm" onclick="speak(GREET,'de-DE')">🔊</button></div>
+  <div class="stats"><div class="stat"><b>${streak()}</b><span>Tage in Folge</span></div><div class="stat"><b>${words}</b><span>Wörter gelernt</span></div><div class="stat"><b>${xp}</b><span>Punkte</span></div></div>
+  <h2>Wähle dein Level</h2>
+  <div class="grid">${LEVELS.map(l=>`<button class="tile" onclick="level('${l.id}')"><div class="ic">${l.ic}</div><div><div class="t">${l.name}</div><div class="s">${l.cefr} · ${l.mods.length} Module</div><div class="bar"><i style="width:${lvPct(l)}%"></i></div></div></button>`).join("")}</div>
+  <h2>Schnellstart</h2>
+  <div class="grid"><button class="tile big" onclick="dailyMix()"><div class="ic">⚡</div><div class="x"><div class="t">Tages-Mix</div><div class="s">10 zufällige Wörter aus allen Levels mit Aussprache</div></div></button></div>`);
+}
+function level(id){
+  const lv=LEVELS.find(l=>l.id===id);
+  shell(`<button class="back" onclick="home()">‹ Zurück</button><h2>${lv.ic} ${lv.name} <span class="tag">${lv.cefr}</span></h2>
+  <div class="grid">${lv.mods.map(m=>`<button class="tile" onclick="module('${lv.id}','${m.id}')"><div class="ic">${m.ic}</div><div><div class="t">${m.name}</div><div class="s">${m.w.length} Einträge</div><div class="bar"><i style="width:${pct(m)}%"></i></div></div></button>`).join("")}
+  <button class="tile" onclick="dialog('${lv.id}')"><div class="ic">🎙️</div><div><div class="t">Gespräch</div><div class="s">App spricht – du antwortest</div><div class="bar"><i style="width:${M('dlg_'+lv.id).dlg}%"></i></div></div></button></div>`);
+}
+function module(lid,mid){
+  const lv=LEVELS.find(l=>l.id===lid),m=lv.mods.find(x=>x.id===mid),st=M(mid);
+  shell(`<button class="back" onclick="level('${lid}')">‹ ${lv.name}</button><h2>${m.ic} ${m.name}</h2>
+  <div class="grid">
+   <button class="tile" onclick="learn('${lid}','${mid}',0)"><div class="ic">🃏</div><div><div class="t">Lernen</div><div class="s">${st.learned.length}/${m.w.length} gelernt</div></div></button>
+   <button class="tile" onclick="quiz('${lid}','${mid}')"><div class="ic">❓</div><div><div class="t">Quiz</div><div class="s">Bestwert ${st.quiz}%</div></div></button>
+   <button class="tile" onclick="write('${lid}','${mid}')"><div class="ic">✍️</div><div><div class="t">Schreiben</div><div class="s">Hören &amp; tippen · ${st.write}%</div></div></button>
+   <button class="tile" onclick="speakEx('${lid}','${mid}')"><div class="ic">🎤</div><div><div class="t">Sprechen</div><div class="s">Nachsprechen · ${st.speak}%</div></div></button>
+  </div>
+  <h2>Alle Einträge</h2><div class="panel list">${m.w.map(w=>`<div><span><b>${esc(w[0])}</b><br><small style="opacity:.7">${esc(w[1])}</small></span><button class="btn sm ghost" onclick="speak(${esc(JSON.stringify(w[0])).replace(/"/g,"&quot;")})">🔊</button></div>`).join("")}</div>`);
+}
+function find(lid,mid){const lv=LEVELS.find(l=>l.id===lid);return [lv,lv.mods.find(x=>x.id===mid)]}
+
+/* Lernen */
+function learn(lid,mid,i){
+  const [lv,m]=find(lid,mid),w=m.w[i],st=M(mid);
+  shell(`<button class="back" onclick="module('${lid}','${mid}')">‹ ${m.name}</button>
+  <div class="prog">${i+1} / ${m.w.length}</div>
+  <div class="panel"><div class="big-w">${esc(w[0])}</div><div class="sub" id="de" style="visibility:hidden">${esc(w[1])}</div>
+  <div class="row"><button class="btn" id="sp">🔊 Anhören</button><button class="btn ghost" id="sh">Übersetzung</button></div></div>
+  <div class="row"><button class="btn ghost" ${i?"":"disabled"} id="pv">‹ Zurück</button><button class="btn" id="nx">${i<m.w.length-1?"Weiter ›":"Fertig ✓"}</button></div>`);
+  const say=()=>speak(w[0]);document.getElementById("sp").onclick=say;setTimeout(say,250);
+  document.getElementById("sh").onclick=()=>{document.getElementById("de").style.visibility="visible"};
+  document.getElementById("pv").onclick=()=>learn(lid,mid,i-1);
+  document.getElementById("nx").onclick=()=>{if(!st.learned.includes(i)){st.learned.push(i);S.xp+=2}save();i<m.w.length-1?learn(lid,mid,i+1):module(lid,mid)};
+}
+/* Quiz */
+function quiz(lid,mid){
+  const [lv,m]=find(lid,mid);const pool=lv.mods.flatMap(x=>x.w);
+  const qs=shuffle(m.w).slice(0,10).map(w=>{const rev=Math.random()<.5;
+    const wrong=shuffle(pool.filter(p=>p[0]!==w[0])).slice(0,3);
+    return {q:rev?w[1]:w[0],a:rev?w[0]:w[1],opts:shuffle([w,...wrong]).map(x=>rev?x[0]:x[1]),en:rev?null:w[0],lang:rev?"de":"en"}});
+  let i=0,ok=0;
+  const next=()=>{
+    if(i>=qs.length){const p=Math.round(ok/qs.length*100),st=M(mid);st.quiz=Math.max(st.quiz,p);S.xp+=ok*3;save();return result(lid,mid,"Quiz",p)}
+    const q=qs[i];
+    shell(`<button class="back" onclick="module('${lid}','${mid}')">‹ Abbrechen</button><div class="prog">Frage ${i+1} / ${qs.length}</div>
+    <div class="panel"><div class="big-w" style="font-size:24px">${esc(q.q)}</div><div class="row" style="justify-content:center">${q.en?'<button class="btn sm ghost" id="sp" style="flex:0">🔊</button>':""}</div>
+    ${q.opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join("")}</div>`);
+    if(q.en){document.getElementById("sp").onclick=()=>speak(q.en);speak(q.en)}
+    document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+      const good=q.opts[b.dataset.k]===q.a;if(good)ok++;
+      document.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(q.opts[x.dataset.k]===q.a)x.classList.add("ok")});
+      if(!good)b.classList.add("bad");
+      if(!q.en)speak(q.a);
+      setTimeout(()=>{i++;next()},1100)});
+  };next();
+}
+/* Schreiben */
+function write(lid,mid){
+  const [lv,m]=find(lid,mid);const qs=shuffle(m.w).slice(0,8);let i=0,ok=0;
+  const next=()=>{
+    if(i>=qs.length){const p=Math.round(ok/qs.length*100),st=M(mid);st.write=Math.max(st.write,p);S.xp+=ok*4;save();return result(lid,mid,"Schreiben",p)}
+    const w=qs[i],mode=i%2===0?"dikt":"uebs";
+    shell(`<button class="back" onclick="module('${lid}','${mid}')">‹ Abbrechen</button><div class="prog">${i+1} / ${qs.length} · ${mode==="dikt"?"Diktat: Tippe, was du hörst":"Übersetze ins Englische"}</div>
+    <div class="panel">${mode==="dikt"?'<div class="big-w">🔊</div><div class="row"><button class="btn" id="sp">Nochmal anhören</button></div>':`<div class="big-w" style="font-size:24px">${esc(w[1])}</div>`}
+    <input type="text" id="in" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Englisch eingeben …">
+    <div class="row"><button class="btn" id="ck">Prüfen</button></div><div class="fb" id="fb"></div></div>`);
+    const inp=document.getElementById("in");
+    if(mode==="dikt"){document.getElementById("sp").onclick=()=>speak(w[0]);setTimeout(()=>speak(w[0]),300)}
+    let done=false;
+    const check=()=>{
+      if(done){i++;return next()}
+      done=true;const good=norm(inp.value)===norm(w[0]);if(good)ok++;
+      document.getElementById("fb").innerHTML=good?'<span class="ok-t">✓ Richtig!</span>':`<span class="bad-t">✗ Richtig wäre:</span><br>${esc(w[0])}`;
+      document.getElementById("ck").textContent="Weiter ›";speak(w[0]);
+    };
+    document.getElementById("ck").onclick=check;
+    inp.addEventListener("keydown",e=>{if(e.key==="Enter")check()});
+  };next();
+}
+/* Sprechen */
+function speakEx(lid,mid){
+  const [lv,m]=find(lid,mid);const qs=shuffle(m.w).slice(0,6);let i=0,ok=0;
+  const next=()=>{
+    if(i>=qs.length){const p=Math.round(ok/qs.length*100),st=M(mid);st.speak=Math.max(st.speak,p);S.xp+=ok*5;save();return result(lid,mid,"Sprechen",p)}
+    const w=qs[i];
+    shell(`<button class="back" onclick="module('${lid}','${mid}')">‹ Abbrechen</button><div class="prog">${i+1} / ${qs.length} · Sprich nach</div>
+    <div class="panel"><div class="big-w">${esc(w[0])}</div><div class="sub">${esc(w[1])}</div>
+    <div class="row"><button class="btn ghost" id="sp">🔊 Vorsprechen</button><button class="btn" id="mic">🎤 Sprechen</button></div>
+    <div class="fb" id="fb"></div><div class="row"><button class="btn ghost" id="sk">Überspringen ›</button></div></div>`);
+    speak(w[0]);
+    document.getElementById("sp").onclick=()=>speak(w[0]);
+    document.getElementById("sk").onclick=()=>{i++;next()};
+    document.getElementById("mic").onclick=()=>{
+      const fb=document.getElementById("fb");fb.textContent="🎧 Ich höre zu …";
+      listen(alts=>{const t=norm(w[0]);const good=alts.some(a=>{const n=norm(a);return n===t||similar(n,t)>=.8});
+        if(good)ok++;fb.innerHTML=good?'<span class="ok-t">✓ Sehr gut!</span>':`<span class="bad-t">Verstanden: „${esc(alts[0])}“</span>`;
+        document.getElementById("sk").textContent="Weiter ›";document.getElementById("sk").onclick=()=>{i++;next()}},
+        msg=>{fb.innerHTML=`<span class="bad-t">${esc(msg)}</span>`});
+    };
+  };next();
+}
+function similar(a,b){const A=a.split(" "),B=b.split(" ");const hit=B.filter(x=>A.includes(x)).length;return hit/Math.max(B.length,1)}
+/* Gespräch */
+function dialog(lid){
+  const lv=LEVELS.find(l=>l.id===lid);let i=0;const st=M("dlg_"+lid);
+  const next=()=>{
+    if(i>=lv.dlg.length){st.dlg=100;S.xp+=15;save();return result(lid,null,"Gespräch",100,true)}
+    const [q,a]=lv.dlg[i];
+    shell(`<button class="back" onclick="level('${lid}')">‹ Abbrechen</button><div class="prog">Gespräch ${i+1} / ${lv.dlg.length}</div>
+    <div class="panel"><div class="tag">Claude</div><div class="big-w" style="font-size:22px">${esc(q)}</div>
+    <div class="row"><button class="btn ghost" id="sp">🔊 Nochmal</button><button class="btn ghost" id="mic">🎤 Sprechen</button></div>
+    <textarea id="in" rows="3" placeholder="Deine Antwort auf Englisch …"></textarea>
+    <div class="row"><button class="btn" id="ok">Antworten</button></div><div class="fb" id="fb"></div></div>`);
+    speak(q);
+    document.getElementById("sp").onclick=()=>speak(q);
+    document.getElementById("mic").onclick=()=>{const fb=document.getElementById("fb");fb.textContent="🎧 Ich höre zu …";listen(al=>{document.getElementById("in").value=al[0];fb.textContent=""},msg=>fb.innerHTML=`<span class="bad-t">${esc(msg)}</span>`)};
+    let done=false;
+    document.getElementById("ok").onclick=()=>{
+      if(done){i++;return next()}
+      const v=document.getElementById("in").value.trim();if(!v){document.getElementById("fb").innerHTML='<span class="bad-t">Bitte schreibe oder sprich eine Antwort.</span>';return}
+      done=true;document.getElementById("fb").innerHTML=`<span class="ok-t">Gut gemacht!</span><br><small>Musterantwort:</small><br>${esc(a)}`;
+      document.getElementById("ok").textContent="Weiter ›";speak(a);S.xp+=3;save();
+    };
+  };next();
+}
+/* Tages-Mix */
+function dailyMix(){
+  const all=LEVELS.flatMap(l=>l.mods.flatMap(m=>m.w));const qs=shuffle(all).slice(0,10);let i=0;
+  const next=()=>{
+    if(i>=qs.length){S.xp+=10;save();return result(null,null,"Tages-Mix",100,true)}
+    const w=qs[i];
+    shell(`<button class="back" onclick="home()">‹ Beenden</button><div class="prog">${i+1} / ${qs.length}</div>
+    <div class="panel"><div class="big-w">${esc(w[0])}</div><div class="sub" id="de" style="visibility:hidden">${esc(w[1])}</div>
+    <div class="row"><button class="btn" id="sp">🔊</button><button class="btn ghost" id="sh">Übersetzung</button></div></div>
+    <div class="row"><button class="btn" id="nx">Weiter ›</button></div>`);
+    speak(w[0]);document.getElementById("sp").onclick=()=>speak(w[0]);
+    document.getElementById("sh").onclick=()=>document.getElementById("de").style.visibility="visible";
+    document.getElementById("nx").onclick=()=>{i++;next()};
+  };next();
+}
+function result(lid,mid,title,p,simple){
+  const back=mid?`module('${lid}','${mid}')`:(lid?`level('${lid}')`:"home()");
+  shell(`<div class="panel" style="text-align:center"><div style="font-size:54px">${p>=80?"🏆":p>=50?"👍":"💪"}</div><h2>${title} abgeschlossen</h2>
+  ${simple?"":`<div class="big-w">${p}%</div>`}<p>${p>=80?"Stark!":"Weiter so – Wiederholung macht den Meister."}<br><b style="color:var(--gold2)">${GREET}</b></p>
+  <div class="row"><button class="btn" onclick="${back}">Weiter</button></div></div>`);
+  speak(p>=80?"Great job!":"Keep going!");
+}
+/* Einstellungen */
+function settings(){
+  shell(`<button class="back" onclick="home()">‹ Zurück</button><h2>Einstellungen</h2>
+  <div class="panel"><label><input type="checkbox" id="slow" ${S.slow?"checked":""}> Langsame Aussprache</label>
+  <div class="row"><button class="btn ghost" onclick="speak('This is how I sound.')">🔊 Englisch testen</button><button class="btn ghost" onclick="speak('Hallo Danis, das ist ein Test.','de-DE')">🔊 Deutsch testen</button></div>
+  <p style="opacity:.7;font-size:13px">Stimmen gefunden: ${("speechSynthesis" in window)?voices.length:"keine Unterstützung"}${location.protocol==="file:"?" · Datei lokal geöffnet":""}. Kein Ton? Medienlautstärke hochdrehen und den Stumm-Schalter (iPhone) ausschalten.</p></div>
+  <div class="panel"><b>Fortschritt sichern</b><p style="opacity:.7;font-size:14px">Der Fortschritt liegt lokal auf diesem Gerät (localStorage). Mit Export/Import kannst du ihn sichern oder auf ein anderes Gerät übertragen.</p>
+  <div class="row"><button class="btn" id="ex">Export</button><button class="btn ghost" id="im">Import</button></div>
+  <textarea id="io" rows="4" placeholder="Export-Text hier / zum Import einfügen" style="font-size:12px"></textarea></div>
+  <div class="panel"><button class="btn ghost" id="rs" style="width:100%">Fortschritt zurücksetzen</button></div>`);
+  document.getElementById("slow").onchange=e=>{S.slow=e.target.checked;save()};
+  document.getElementById("ex").onclick=()=>{const t=document.getElementById("io");t.value=JSON.stringify(S);t.select();try{navigator.clipboard.writeText(t.value)}catch(e){}};
+  document.getElementById("im").onclick=()=>{try{const o=JSON.parse(document.getElementById("io").value);if(o.mods){S=o;save();home()}}catch(e){alert("Ungültiger Export-Text.")}};
+  document.getElementById("rs").onclick=()=>{if(confirm("Wirklich alles zurücksetzen?")){S={mods:{},xp:0,days:[],voice:"",slow:false};save();home()}};
+}
+home();
+</script>
+</body>
+</html>
